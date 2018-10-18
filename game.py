@@ -308,6 +308,11 @@ def main():
         print_inventory_items(inventory)
         command = menu(current_room["exits"], current_room["items"], inventory)
         execute_command(command)
+        if len(inventory) == 6:
+            print("You win!!!")
+            break
+        else:
+            pass
 
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
