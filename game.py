@@ -283,11 +283,8 @@ def menu(exits, room_items, inv_items):
     function before being returned.
 
     """
-    # Display menu
     print_menu(exits, room_items, inv_items)
-    # Read player's input
     user_input = input("> ")
-    # Normalise the input
     normalised_user_input = normalise_input(user_input)
     return normalised_user_input
 
@@ -303,20 +300,13 @@ def move(exits, direction):
     >>> move(rooms["Reception"]["exits"], "west") == rooms["Office"]
     False
     """
-    # Next room to go to
     return rooms[exits[direction]]
 
-# This is the entry point of our program
 def main():
-
-    # Main game loop
     while True:
-        # Display game status (room description, inventory etc.)
         print_room(current_room)
         print_inventory_items(inventory)
-        # Show the menu with possible actions and ask the player
         command = menu(current_room["exits"], current_room["items"], inventory)
-        # Execute the player's command
         execute_command(command)
 
 # Are we being run as a script? If so, run main().
@@ -324,4 +314,3 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     main()
-
